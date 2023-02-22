@@ -1,8 +1,8 @@
+//credit to enijar/react-xr-ui for a convenient abstraction of XR and regular interaction
 import React from "react"
 import type { Intersection } from "three"
 import { Interactive, useXR, XRInteractionEvent } from "@react-three/xr"
 import { ThreeEvent } from "@react-three/fiber"
-//credit to enijar/react-xr-ui for conveniently abstracting XR and regular interaction
 
 type Props = {
   children: React.ReactNode

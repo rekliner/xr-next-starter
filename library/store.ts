@@ -1,10 +1,11 @@
 import { create } from "zustand"
 
 export interface storeState {
-  dummy: String
+  xrMode: "OFF" | "VR" | "AR"
+  setXRMode: (mode: "OFF" | "VR" | "AR") => void
 }
 
-export const useDummyStore = create<storeState>((set) => ({
-  dummy: "Hello World!",
-  setDummy: (text: String) => set({ dummy: text }),
+export const useXRStore = create<storeState>((set) => ({
+  xrMode: "OFF",
+  setXRMode: (mode) => set({ xrMode: mode }),
 }))
