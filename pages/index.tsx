@@ -9,41 +9,6 @@ import { useState } from "react"
 import { XRDefaults } from "@/components/XRDefaults"
 import { VRARButton } from "@/components/VRARButton"
 
-const DefaultScene = () => {
-  const xrMode = useXRStore((state) => state.xrMode)
-  const [cubeColor, setCubeColor] = useState("#440066")
-  const changeColor = () => {
-    const colorHex = `#${new THREE.Color(
-      Math.random() / 2,
-      Math.random() / 2,
-      Math.random() / 2
-    ).getHexString()}`
-    setCubeColor(colorHex)
-  }
-
-  return (
-    <>
-      <ambientLight intensity={0.1} />
-      <pointLight position={[20, 10, -15]} intensity={2} color="#FAA" />
-      <pointLight position={[-20, 10, 5]} intensity={2} color="#AAF" />
-      <primitive object={new THREE.AxesHelper(2)} />
-      <primitive object={new THREE.GridHelper(20, 20)} />
-      <OrbitControls maxPolarAngle={Math.PI / 2} />
-      <Interaction onUp={() => changeColor()}>
-        <Box key="companionCube" position={[0, 0.5, 0]}>
-          <meshPhongMaterial color={cubeColor} />
-        </Box>
-        <Text position={[0, 1.1, 0.51]} scale={0.3} color={cubeColor}>
-          XR: {xrMode}
-        </Text>
-        <Text position={[0, 0.5, 0.51]} scale={0.3} color={cubeColor}>
-          {cubeColor}
-        </Text>
-      </Interaction>
-    </>
-  )
-}
-
 export default function Home() {
   const xrMode = useXRStore((state) => state.xrMode)
   const setXRMode = useXRStore((state) => state.setXRMode)
@@ -81,6 +46,41 @@ export default function Home() {
           <DefaultScene />
         </XR>
       </Canvas>
+    </>
+  )
+}
+
+const DefaultScene = () => {
+  const xrMode = useXRStore((state) => state.xrMode)
+  const [cubeColor, setCubeColor] = useState("#440066")
+  const changeColor = () => {
+    const colorHex = `#${new THREE.Color(
+      Math.random() / 2,
+      Math.random() / 2,
+      Math.random() / 2
+    ).getHexString()}`
+    setCubeColor(colorHex)
+  }
+
+  return (
+    <>
+      <ambientLight intensity={0.1} />
+      <pointLight position={[20, 10, -15]} intensity={2} color="#FAA" />
+      <pointLight position={[-20, 10, 5]} intensity={2} color="#AAF" />
+      <primitive object={new THREE.AxesHelper(2)} />
+      <primitive object={new THREE.GridHelper(20, 20)} />
+      <OrbitControls maxPolarAngle={Math.PI / 2} />
+      <Interaction onUp={() => changeColor()}>
+        <Box key="companionCube" position={[0, 0.5, 0]}>
+          <meshPhongMaterial color={cubeColor} />
+        </Box>
+        <Text position={[0, 1.1, 0.51]} scale={0.3} color={cubeColor}>
+          XR: {xrMode}
+        </Text>
+        <Text position={[0, 0.5, 0.51]} scale={0.3} color={cubeColor}>
+          {cubeColor}
+        </Text>
+      </Interaction>
     </>
   )
 }

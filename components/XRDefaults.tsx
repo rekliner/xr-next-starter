@@ -58,7 +58,7 @@ export const XRDefaults = (props: {
       if (wasPresenting.current) {
         wasPresenting.current = false
         if (xrMode !== "OFF") {
-          setXRMode("OFF") //a hack since on some phones onSessionEnd doesn't get triggered
+          setXRMode("OFF") //a hack for redundancy since onSessionEnd is not consistantly triggered
         }
       }
     }
