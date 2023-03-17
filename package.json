@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "run-p devServer devProxy",
     "devServer": "next dev",
-    "devProxy": "local-ssl-proxy --source 300 --target 3000",
+    "devProxy": "local-ssl-proxy --source 443 --target 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
