@@ -29,7 +29,7 @@ export const DefaultScene = () => {
       <pointLight position={[-20, 10, 5]} intensity={2} color="#AAF" />
       <primitive object={new THREE.AxesHelper(2)} />
       <primitive object={new THREE.GridHelper(20, 20)} />
-      <OrbitControls maxPolarAngle={Math.PI / 2} />
+      <OrbitControls maxPolarAngle={Math.PI / 2 - 0.01} minPolarAngle={0} />
       <Text position={[0, 1.1, 0.51]} scale={0.2} color={cubeColor}>
         XR Mode: {xrMode}
       </Text>
